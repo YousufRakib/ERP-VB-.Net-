@@ -1,0 +1,602 @@
+﻿<%@ Master Language="VB" CodeFile="DashboardUsers.master.vb" Inherits="DashboardUser" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%; overflow-y: hidden">
+<head id="Head1" runat="server">
+    <title></title>
+    <link rel="shortcut icon" href="images/dflower2.ico" type="image/x-icon" style="padding-top: 8px;" />
+    <link rel="icon" href="images/dflower2.ico" type="image/x-icon" />
+    <meta http-equiv="Page-Enter" content="blendTrans(Duration=0.2)" />
+    <meta http-equiv="Page-Exit" content="blendTrans(Duration=0.2)" />
+    <meta charset="UTF-8" />
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="Content-Language" content="en_US" />
+
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery-ui-1.11.4.js"></script>
+    <script type="text/javascript">
+        var J1_8 = $.noConflict(true);
+    </script>
+
+    <link rel="stylesheet" href="css/Selectize/normalize.css" />
+<%--    <link rel="stylesheet" href="js/Preloader-master/preloader.css" />
+    <script type="text/javascript" src="js/Preloader-master/preloader.js"></script>--%>
+    <script type="text/javascript" src="js/Selectize/jquery.js"></script>
+    <script type="text/javascript" src="js/Selectize/selectize.js"></script>
+    <script type="text/javascript" src="js/Selectize/index.js"></script>
+    <script type="text/javascript">
+        var J1_10 = $.noConflict(true);
+    </script>
+
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flexigrid.js"></script>
+    <script type="text/javascript" src="js/jquery.ibutton.js"></script>
+    <script type="text/javascript" src="js/jquery-mask.js"></script>
+    <script type="text/javascript" src="js/messagebox.min.js"></script>
+    <script type="text/javascript" src="js/jDate.js"></script>
+    <script type="text/javascript" src="js/validation.js"></script>
+    <script type="text/javascript" src="js/jquery.growl.js"></script>
+
+    <link rel="stylesheet" href="css/jquery.ibutton1.css" type="text/css" />
+    <link rel="stylesheet" href="css/flexigrid.css" type="text/css" />
+    <link rel="stylesheet" href="css/StyleSheet.css" type="text/css" />
+    <link rel="stylesheet" href="css/animated-menu.css" />
+    <link rel="stylesheet" href="css/dialog.css" />
+    <link rel="stylesheet" href="css/ui-autocomplete.css" />
+    <link rel="stylesheet" href="css/Datepicker.css" />
+    <link rel="stylesheet" href="css/icon.css" />
+    <%--<link rel="stylesheet" href="css/tooltips.css" />--%>
+    <link rel="stylesheet" href="css/dialogbuttonstyle.css" />
+    <link rel="stylesheet" href="css/messagebox.css" />
+    <link type="text/css" href="css/Head1.css" rel="stylesheet" />
+    <link type="text/css" href="css/jquery.growl.css" rel="stylesheet" />
+
+    <link href="css/jquery.fileuploader-theme-dragdrop.css" rel="stylesheet" />
+    <link href="css/jquery.fileuploader.css" rel="stylesheet" />
+    <script src="js/custom.js" type="text/javascript"></script>
+    <script src="js/jquery.fileDownload.js" type="text/javascript"></script>
+    <script src="js/jquery.fileuploader.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $.ajaxSetup({
+            // the converter option is a list of dataType-to-dataType conversion functions 
+            // example: converters['text json'] is a function that accepts text and returns an object
+            // note: to redefine any single converter, you must redefine all of them
+            converters: {
+                "text json": function (text) {
+                    if (!text)
+                        return text;
+                    // NOTE: this converter must return a parsed version of the json  
+                    var result = jQuery.parseJSON(text);
+                    if (result.d && result.d["Result"]) {
+                        output = {};
+                        output.d = result.d["Result"];
+                        return output;
+                    }
+                    return result;
+                }
+                //, "text html": true,
+                //"* text": window.String,
+                //"text xml": jQuery.parseXML
+            }
+        });
+    </script>
+
+    <style type="text/css">
+        #frmdiv {
+            overflow: auto;
+        }
+        @keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  
+  width: 30px;
+  height: 30px;
+  top:9px;
+  left: 95%;
+  border-radius: 50%;
+  border: 2px solid #8cc63f;
+  border-top-color: #862c88;
+  
+  animation: spinner 2s linear infinite;
+}
+    </style>
+    <!--Start of Tawk.to Script
+ 
+    <script type="text/javascript"> /*Don't show Chat widget, make it minimized :: Added by Abinaya :: 22Jan2018::*/
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+      
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/59415c8a50fd5105d0c8105b/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+   End of Tawk.to Script-->
+
+
+    <script type="text/javascript">
+        //------ Auto logout user due to inactivity ::: added By Belal on 02 Aug 2020
+        // Set timeout variables.
+        var timoutWarning = 3300000; // Display warning in 55 Mins.
+        var timoutNow = 3600000; // Timeout in 60 mins.
+
+        var warningTimer;
+        var timeoutTimer;
+
+        // Start timers.
+        function StartTimers() {
+            warningTimer = setTimeout("IdleWarning()", timoutWarning);
+            timeoutTimer = setTimeout("IdleTimeout()", timoutNow);
+        }
+
+        // Reset timers.
+        function ResetTimers() {
+            //$.growl.notice({ title: "resetting!!!", message: "" });
+            clearTimeout(warningTimer);
+            clearTimeout(timeoutTimer);
+            StartTimers();
+        }
+
+        // Show idle timeout warning dialog.
+        function IdleWarning() {
+            $.growl.notice({ title: "", message: "You will be logged out within a minute due to inactivity!!" });
+        }
+
+        // Logout the user.
+        function IdleTimeout() {
+            window.location.href = "Login.aspx";
+        }
+        //------------***** END *******------------------------//
+
+
+
+        var LockedOrder = []; // this global variable used to order lock 
+
+        $(document).mousemove(function (event) {
+            ResetTimers();
+        });
+        $(document).click(function (event) {
+            ResetTimers();
+        });
+        $(document).keypress(function (event) {
+            ResetTimers();
+        });
+        $(document).keydown(function (event) {
+            ResetTimers();
+        });
+        $(document).mouseover(function (event) {
+            ResetTimers();
+        });
+
+        $(document).ready(function () {
+            // start timer 
+            StartTimers();
+
+            var today = new Date();
+            var year = today.getFullYear();
+            $("#spnCopyrgt").html("Copyright © " + year + "&nbsp;");
+
+            var MyTime;
+
+            $(document).ajaxStart(function () {
+
+                //$('.pageContent').addClass("PWOverlay");
+                //PWnotif({
+                //    type: "processing",
+                //    msg: "Please wait...",
+                //    position: "center",
+                //    fade: true,
+                //    bgcolor: 'rgb(249, 250, 249)',
+                //    border: 'rgb(132, 136, 132)',
+                //    autohide: 0,
+                //});               
+                //$("#imgUserLoader").show();
+                $("#DivExecutionResult").html("");
+                clearTimeout(MyTime);
+                $("#DivExecutionResult").hide();
+            });
+
+            $(document).ajaxStop(function () {
+                // $('#ui_PWnotifIt').hide();
+                //$("#imgUserLoader").hide();
+
+                $("#DivExecutionResult").show();
+                MyTime = setTimeout(function () {
+
+                    $("#DivExecutionResult").hide();
+                }, 5000);
+            });
+
+
+            //$(document).ajaxStop(function () {
+            //    // $('#ui_PWnotifIt').hide();
+            //    $("#imgUserLoader").hide();
+
+            //    $("#DivExecutionResult").show();
+            //    MyTime = setTimeout(function () {
+
+            //        $("#DivExecutionResult").hide();
+            //    }, 5000);
+            //});
+
+            $.ajax({
+                type: "POST",
+                url: 'BloomService.asmx/GetUserPageList',
+                data: '{"UserID":"' + $("#ctl00_divUserID").html() + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (output) {
+                    
+                    var user = output.d;
+                    var wpdata = user.WebPermissions
+                    if (wpdata != null) {
+                        $("#cssmenu ul").html("");
+                        for (var i in wpdata) {
+                            var wpdetails = wpdata[i];
+                            if (wpdetails.Page == "PO" || wpdetails.Page == "Grower" || wpdetails.Page == "Accounts") {
+                                var pgname = wpdetails.Name.replace(" ?", "")
+                                var splitpage = pgname.split(" ");
+                                var pgname0 = splitpage[0];
+                                var pgname1 = splitpage[1];
+                                $('#cssmenu ul').append("<li id='UDboard_menu" + wpdetails.Page + "'><a href='DefaultUser.aspx?Page=" + wpdetails.Page + "' style='padding-bottom:1.4px;'><span>" + pgname0 + "</span><br><span style='font-size:11px'>" + pgname1 + "</span></a></li>");
+                            }
+                            else {
+                                $('#cssmenu ul').append("<li id='UDboard_menu" + wpdetails.Page + "'><a href='DefaultUser.aspx?Page=" + wpdetails.Page + "'><span>" + wpdetails.Name.replace(" ?", "") + "</span></a></li>");
+                            }
+                        }
+                        //$('#cssmenu ul').append("<li id='UDboard_MenuAdminProfile' style='display:none;'><a href='Default.aspx?Page=Users'><span>Admin Profile</span></a></li>");
+                        $('#cssmenu ul').append("<li class='last'><a href='login.aspx'><span>Logout</span></a></li>");
+                    }
+                    var page = getParameterByName("Page");
+                    if (page != "") {
+                        $("#cssmenu ul li").removeClass('active');
+                        $("#UDboard_menu" + page).addClass('active');
+                    }
+                    if ($("#ctl00_divIsAdmin").html() == "True")
+                        //$("#UDboard_MenuAdminProfile").show();
+                        $("#Dboard_MenuUserProfile").show();
+                }
+            });
+
+
+
+            document.title = '<%=ConfigurationManager.AppSettings("CompanyName")%>';
+                $("#imgHeaderLogo").attr("src", "images/" + ('<%=ConfigurationManager.AppSettings("CompanyName")%>').toString().replaceAll(' ', '') + "headerlogo.PNG");
+            var height = $(window).height();
+            $("#leftpanel").css('height', height - 120);
+            J1_8($(document)).tooltip();
+            $("#frmdiv").css("width", $(window).width());
+            if (height <= 600)
+                $("#frmdiv").css("height", height);
+            else
+                $("#frmdiv").css("height", height + 50);
+
+            $("#lnkcopyright").attr("href", "http://www.dflower.com");
+            $("#lnkcopyright").html("dFlower");
+
+
+            //Added By Belal on 05 Sept 2020 :: For selected Email Log Pop up
+            $("#DivEmailLog").dialog({
+                autoOpen: false,
+                resizable: false,
+                title: "Alert",
+                width: 1180,
+                height: 580,
+                modal: true,
+                open: function () {
+
+                }
+            });
+
+            $("#DivEmailLogOpenFile").dialog({
+                autoOpen: false,
+                resizable: false,
+                title: "Alert",
+                width: 1180,
+                height: 580,
+                modal: true,
+                open: function () {
+
+                }
+            });
+
+            function procMe(celDiv, id) {
+                $(celDiv).click(function () {
+                    debugger;
+                    //window.celDiv = celDiv;
+                    var filePath = ""; var fileName = "";
+                    if ($(celDiv).find('a') && $(celDiv).find('a').attr('href')) {
+                        filePath = $(celDiv).find('a').attr('href');
+                        //filePath = filePath.replace("\\", "#");
+                        fileName = filePath.replace(/^.*[\\\/]/, '');
+                        //escape hash char
+                        fileName = fileName.replace('#', '%23');
+                        //filePath = "..\\..\\BloomSites\\VendorEmails\\ReportExports\\" + filePath;
+                        <%--window.open("<% = (Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath) %>/PageDownloadFIle.aspx?fileName=" + fileName,
+                                '_blank' // <- This is what makes it open in a new window.
+                        );--%>
+                        //window.showModalDialog("<% = (Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath) %>/PageDownloadFIle.aspx?fileName=" + fileName);
+                        $("#DivEmailLogOpenFile").dialog('option', 'title', 'Email Attachment');
+                        $("#DivEmailLogOpenFile #iframeEl").attr('src', "<% = (Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath) %>/PageDownloadFIle.aspx?fileName=" + fileName);
+                        $("#DivEmailLogOpenFile").dialog("open");
+                        $("#DivEmailLogOpenFile #iframeEl").on('load', function () {
+                                
+                        });
+                    }
+                    return false;
+                    //$.ajax({
+                    //    type: "POST",
+                    //    url: 'BloomService.asmx/DownloadFile',
+                    //    data: '{"filePath":"' + filePath + '" }',
+                    //    contentType: "application/json; charset=utf-8",
+                    //    dataType: "json",
+                    //    success: function (output, status) {
+                    //        console.log("download file done successfuly");
+                    //    }
+                    //});
+                });
+            }
+
+            //Added By Belal on 05 Sept 2020 :: For selected Email Log grid
+            $("#fgrdEmailLogList").flexigrid({
+                url: 'BloomService.asmx/LoadEmailLogs',
+                dataType: 'xml',
+                colModel: [
+                    { display: 'SENT AT', name: 'SENT_AT', width: 120, sortable: true, align: 'left' },
+                    { display: 'FROM', name: 'FROM_MAIL', width: 150, sortable: true, align: 'left' }, 
+                    { display: 'TO', name: 'TO_MAIL', width: 210, sortable: true, align: 'left' }, 
+                    { display: 'SUBJECT', name: 'SUBJECT', width: 450, sortable: true, align: 'left' },
+                    { display: 'STATUS', name: 'STATUS', width: 50, sortable: true, align: 'left' },
+                    { display: 'PDF', name: 'FILENAME', width: 60, sortable: true, align: 'center', process: procMe }
+                ],                
+                showTableToggleBtn: true,
+                sortname: "",
+                sortorder: "",
+                usepager: true,
+                title: false,
+                useRp: true,
+                qtype: "",
+                rp: 30000,
+                nomsg: 'No records found!',
+                singleSelect: true,
+                showToggleBtn: false,
+                resizable: false,
+                autoload: false,
+                showTableToggleBtn: false,
+                width: 1150,
+                height: 450,
+                striped: true,
+                params: [
+                    { name: 'EmailType', value: '' },
+                    { name: 'EmailedDocumentNumber', value: '' },
+                ],
+                onSuccess: function () {
+
+                    $("#DivEmailLog .sDiv").css('float', 'left').css('width', '542px');
+                    $('#DivEmailLog .pDiv').css('padding', '2px').css('border-left', '0px');
+                    $('#DivEmailLog .pDiv').find('.pDiv2').find('.pGroup').children(0).not('.pPageStat').hide();
+                    $("#DivEmailLog .pDiv").find(".pDiv2").find(".btnseparator").hide();
+                    $("#DivEmailLog .pDiv").find(".pDiv2").find(".pReload").attr('style', 'margin-left: -40px').show();
+                },
+                onError: function (xhr, status, errorThrown) {
+                    if (xhr.responseText.indexOf("Object reference not set to an instance of an object.") >= 0) {
+                        window.location.href = "Login.aspx";
+                    }
+                }
+            });
+
+        });
+
+        function viewEmailLog() {
+            $("#fgrdEmailLogList").flexOptions({ params: [{ name: 'EmailType', value: '' }, { name: 'EmailedDocumentNumber', value: '' }], query: "", newp: 1 }).flexReload();
+
+            $("#DivEmailLog").dialog('option', 'title', 'EMAIL LOG');
+            $("#DivEmailLog").dialog("open");
+        }
+
+        window.addEventListener('keydown', function (e) {        
+            try {
+                var focused = document.activeElement;
+                if (e.altKey && e.keyCode == 121) { // ALT + F10
+                    if (($("#CreditLimitsApprovalDialog").is(":visible") == false)) {
+                        debugger;
+
+                        if ($("#ctl00_divUserType").html() == "Credit Manager") {
+                            $("#CreditLimitsApprovalDialog").dialog("open");
+                            e.preventDefault();
+                            e.stopPropagation();
+                            return false;
+                        }
+                        if ($("#ctl00_divUserType").html() == "Sales Manager") {
+                            $("#CreditLimitsApprovalDialog").dialog("open");
+                            e.preventDefault();
+                            e.stopPropagation();
+                            return false;
+                        }
+                        if ($("#ctl00_divUserType").html() == "Owner") {
+                            $("#CreditLimitsApprovalDialog").dialog("open");
+                            e.preventDefault();
+                            e.stopPropagation();
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (ex) {
+
+            }
+        });
+
+
+    </script>
+
+    
+</head>
+<body>
+    <%-- <div id="imgUserLoader" style="display: none" class="imgLoaderForUser">
+        <img alt="Loading..." src="images/ajax_loader.gif" class="imgloader" />
+    </div>--%>
+    <form id="form1" runat="server" style="overflow: hidden;">
+        <div id="frmdiv">
+            <div class="header">
+
+                <div style="float: left; margin-right: 5px;">
+                    <a href="#">
+                        <img id="imgHeaderLogo" src="images/transparent.PNG" alt="User" style="margin-left: 5px" height="50" /></a>
+                </div>
+
+                <div style="float: right; margin-right: 5px">
+                    <%--<img alt="Loading..." id="imgUserLoader" style="height: 45px; width: 45px;position: fixed;right: 65px;display: none" src="images/ajax_loader_blue_512.gif" />--%>
+                       <i class="spinner" style="color:#862c88;" alt="Loading..." id="imgUserLoader" style="height: 30px; width: 30px;position: fixed;right: px;display: none"></i>
+                    <a style="display: none; position: absolute; right: 50px; top: 13px; font-size: 17px; font-weight: bold;" id="DivExecutionResult"></a>
+                    <nav>
+                       <ul style="padding: 8px; position:absolute;">
+                            <li style="width:50px;height:49px">
+                            <a href="#">
+                                <img src="images/DFLOWER.ico" title="For support contact: jose@dflower.com"  alt="User" width="35px" />
+                            </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div id='cssmenu' style="overflow-x: hidden; overflow-y: auto;">
+                <ul>
+                    <%-- <li id="UDboard_MenuConfirmedPOs"><a href='DefaultUser.aspx?Page=ConfirmedPOs'><span>Confirmed</span></a></li>
+                    <li id="UDboard_MenuPendingPOs"><a href='DefaultUser.aspx?Page=PendingPOs'><span>Pending</span></a></li>
+                    <li id="UDboard_MenuManualPO"><a href='DefaultUser.aspx?Page=ManualPO'><span>Users</span></a></li>
+                    <li id="UDboard_MenuIncoming"><a href='DefaultUser.aspx?Page=Incoming'><span>Incoming</span></a></li>
+                    <li id="UDboard_MenuInventory"><a href='DefaultUser.aspx?Page=Inventory'><span>Inventory</span></a></li>
+                    <li id="UDboard_MenuOrder"><a href='DefaultUser.aspx?Page=Order'><span>Orders</span></a></li>
+                    <li id="UDboard_MenuAvailability" class='postatus'><a href='DefaultUser.aspx?Page=Availability'><span>Availability</span></a></li>
+                    <li id="UDboard_MenuCredits" class='postatus'><a href='DefaultUser.aspx?Page=Credits'><span>Credits</span></a></li>
+                    <li id="UDboard_MenuPO" class='postatus'><a href='DefaultUser.aspx?Page=PO'><span>Purchases</span></a></li>
+                    <li id="UDboard_MenuCustUser" class='postatus'><a href='DefaultUser.aspx?Page=CustUser'><span>Cust User</span></a></li>
+                    <li id="UDboard_MenuAdminProfile" style="display: none;"><a href='Default.aspx?Page=Users'><span>Admin Profile</span></a></li>
+                    <li class='last'><a href='Login.aspx'><span>Logout</span></a></li>--%>
+                </ul>
+                <div style="float: right; height: 38px; cursor: pointer" class="loginuserdetails">
+                    <div id="divLoginUserName" class="LoginUserName" runat="server"></div>
+                    <div id="divLoginUserEmail" class="LoginEmail" runat="server"></div>
+                </div>
+
+            </div>
+
+            <div class="MainContentWrapper" align="center">
+                <div id="container" class="MainContent" align="left">
+
+                    <div id="leftpanel" class="LeftPanel">
+                        <asp:ContentPlaceHolder ID="detail" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+
+                    <div id="CreditLimitsApprovalDialog" style="display:none;margin-top: 20px;">
+    <table>
+        <tr>
+            <td>
+                <label>Customer# / Name : </label>
+            </td>
+            <td>
+                <input type="text" id="txtCLACustomerName" style="width: 300px;"  />               
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="msgbox-CLACustDetailsWarning" style="display:none;">
+    <p id="msghtml-CLACustDetailsWarning" style="font-size:12.5px;font-weight:bold;"></p>
+</div>
+
+<div id="DivPageCreditLimitsApproval" style="display:none;word-wrap:break-word;height: auto;font-size: 20px; color: white; background-color: blue;font-weight: bold;"></div>
+
+                    <div class="pageFooter center fontSmall fontBold" style="font-weight: bold; font-size: 10px; text-align: center; height: 15px; width: 100%; color: #999999; bottom: 10px;">
+                        <p style="margin:0px"><span id="spnCopyrgt">Copyright © 2015</span> <a target="_blank" id="lnkcopyright" href="#"></a> All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="divUserID" runat="server" style="display: none"></div>
+            <div id="divUserType" runat="server" style="display: none"></div>
+            <div id="divUserRP" runat="server" style="display: none"></div>
+            <div id="divIsAdmin" runat="server" style="display: none"></div>
+            <%-- VEN::12-Nov-2015::For update password --%>
+            <div id="divChangePasswordDialog" style="display: none">
+                <table style="width: 100%">
+                    <tr>
+                        <td colspan="2">
+                            <div class="Warning" align="center">
+                                OOPS! Unable to process your request. Please contact admin!
+                            </div>
+                            <div class="YellowWarning" align="center">
+                                All fields are required fields, Please try again.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Username :
+                        </td>
+                        <td>
+                            <input type="text" id="txtloginusername" disabled="disabled" style="width: 250px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email :
+                        </td>
+                        <td>
+                            <input type="text" id="txtloginemail" disabled="disabled" style="width: 250px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password :
+                        </td>
+                        <td>
+                            <input type="password" id="txtloginpassword" style="width: 250px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Confirm Password :
+                        </td>
+                        <td>
+                            <input type="password" id="txtloginconfirmpass" style="width: 250px" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <%--<div align='center' style='font-size:11px; color:#999999;'>&copy 2014-15 - GT Brokers Corp. USA, All rights reserved.</div>--%>
+        </div>
+    </form>
+    <%--Added By Belal on 01 Sept 2020--%>
+    <div id="DivEmailLog" style="display: none">
+        <table style="width: 100%">
+            <tr>
+                <td>
+                    <table id="fgrdEmailLogList" style="display: none;"></table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="DivEmailLogOpenFile" style="display: none">
+        <table style="width: 100%">
+            <tr>
+                <td>
+                    <iframe id="iframeEl" src="" style="height: 500px; width: 100%;"></iframe>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+<%-- VEN::12-11-2015::Update Password changes --%>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.armellini.com/a4/schemas" name="DataEntryPort" targetNamespace="http://www.armellini.com/a4/schemas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://www.armellini.com/a4/schemas" elementFormDefault="qualified" targetNamespace="http://www.armellini.com/a4/schemas" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="AELOrderResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ResponseHeader" type="tns:ResponseHeader" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ResponseDetail" type="tns:ResponseDetail" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AelisShipperEDI">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="OrderHeader" type="tns:OrderHeader" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderDetail" type="tns:OrderDetail" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AuthHeader" type="tns:AuthHeader" />
+      <xs:complexType name="OrderHeader">
+        <xs:sequence>
+          <xs:element name="Shipdate" type="xs:string" />
+          <xs:element name="Shipper" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrderDetail">
+        <xs:sequence>
+          <xs:element name="UnitID" type="xs:string" />
+          <xs:element name="UnitOfMeasure" type="xs:string" />
+          <xs:element minOccurs="0" name="FarmName" type="xs:string" />
+          <xs:element minOccurs="0" name="AWB" type="xs:string" />
+          <xs:element name="Consignee" type="xs:string" />
+          <xs:element name="Length" type="xs:decimal" />
+          <xs:element name="Width" type="xs:decimal" />
+          <xs:element name="Height" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Measure" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" type="xs:string" />
+          <xs:element minOccurs="0" name="Product_Description" type="xs:string" />
+          <xs:element minOccurs="0" name="PalletID" type="xs:string" />
+          <xs:element minOccurs="0" name="PO" type="xs:string" />
+          <xs:element minOccurs="0" name="Invoice" type="xs:string" />
+          <xs:element minOccurs="0" name="Remarks" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AuthHeader">
+        <xs:sequence>
+          <xs:element name="Username" type="xs:string" />
+          <xs:element name="Password" type="xs:string" />
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="skip" />
+      </xs:complexType>
+      <xs:complexType name="ResponseHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="orderNumber" type="xs:string" />
+          <xs:element name="shipdate" type="xs:string" />
+          <xs:element name="shipper" type="xs:string" />
+          <xs:element minOccurs="0" name="totalUnitsInFile" type="xs:integer" />
+          <xs:element minOccurs="0" name="totalUnitsSuccess" type="xs:integer" />
+          <xs:element minOccurs="0" name="totalUnitsDuplicates" type="xs:integer" />
+          <xs:element minOccurs="0" name="totalUnitsDiscrepancy" type="xs:integer" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResponseDetail">
+        <xs:sequence>
+          <xs:element name="consignee" type="xs:string" />
+          <xs:element name="consignee_name" type="xs:string" />
+          <xs:element name="unitsSuccess" type="xs:integer" />
+          <xs:element name="unitsFailed" type="xs:integer" />
+          <xs:element name="message" type="xs:string" />
+          <xs:element name="unitFailedDetail" type="tns:unitFailedDetail" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="unitFailedDetail">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="unitID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="AelisShipperEDIResponse">
+    <wsdl:part name="AELOrderResponse" element="ns1:AELOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AelisShipperEDI">
+    <wsdl:part name="AelisShipperEDIRequest" element="ns1:AelisShipperEDI" />
+    <wsdl:part name="header" element="ns1:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="DataEntryPort">
+    <wsdl:operation name="AelisShipperEDI">
+      <wsdl:input name="AelisShipperEDI" message="ns1:AelisShipperEDI" />
+      <wsdl:output name="AelisShipperEDIResponse" message="ns1:AelisShipperEDIResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

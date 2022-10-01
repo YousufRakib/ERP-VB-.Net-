@@ -1,0 +1,146 @@
+﻿
+
+    .filterbutton {
+        width: 150px;
+        height: 45px;
+        border: none;
+        outline: none;
+        box-shadow: 0 3px 2px 0 #2c80a2;
+        color: #ffffff;
+        background-color: #0000ff;
+        background-repeat: no-repeat;
+        text-align: left;
+        vertical-align: top;
+        font-size: 10px;
+        text-decoration-line: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+        .filterbutton:hover {
+            background-color: #0000ff;
+            cursor: pointer;
+        }
+
+    .ProjectFilter {
+        width: 80px;
+        height: 17px;
+        line-height: 17px;
+        display: inline-block;
+        color: #FFFFFF;
+        background-color: #6E6EC8;
+        font-weight: bold;
+        font-size: 11px;
+        text-align: center;
+        text-decoration: none;
+        margin-left: 0;
+        /*margin-left:5px;*/
+        border: 1px solid #aaaaaa;
+        border: 1px solid #6E6EC8;
+        border-radius: 2px;
+        white-space: nowrap;
+        margin-top: 2px;
+    }
+
+    a.ProjectFilter:hover, a.ProjectFilter:active, a.showbtn:hover, a.showbtn:active {
+        background-color: #ffffff;
+        color: #6E6EC8;
+        cursor: pointer;
+    }
+
+    a.filterbutton:hover, a.Codeselect:active, a.showbtn:hover, a.showbtn:active {
+        background-color: #FF6666;
+        color: #fff;
+        cursor: pointer;
+        border: 1px solid #77C1FF;
+    }
+
+    .DivFilterLabelStyle {
+        color: #000;
+        font-size: 9px;
+        font-weight: bold;
+    }
+
+    .tooltip {
+        position: relative;
+        width: 150px;
+        height: 35px;
+        margin: 2px;
+        margin-top: 5px;
+    }
+
+    .tooltip-content {
+        background: #fff;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+        border-radius: 5px;
+        position: relative;
+        z-index: 10;
+        width: 248px;
+        height: 100%;
+    }
+
+    .tooltip:before, .tooltip:after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        margin-left: -5px;
+        z-index: 11;
+    }
+
+    .tooltip:after {
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+        z-index: 9;
+    }
+
+    .Acctionbuttons {
+        width: 80px;
+        height: 30px;
+        border: none;
+        outline: none;
+        box-shadow: 0 3px 2px 0 #666;
+        color: #fff;
+         background-color: #0000ff;
+        background-repeat: no-repeat;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 10px;
+        text-decoration-line: none;
+    }
+
+        .Acctionbuttons:hover {
+              background-color: #3B8AD0;
+            cursor: pointer;
+        }
+
+    .FilterDivStyle {
+        height: 22px;
+        background-color: #0C68B3;
+        margin-left: -5px;
+        margin-right: -1px;
+    }
+
+    .DivFilterLabelStyle {
+        color: #fff;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .FilterImageStyle {
+        position: absolute;
+        margin-top: -3px;
+        margin-left: 128px;
+    }
+
+    .slidediv{
+        position:relative;
+    }

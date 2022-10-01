@@ -1,0 +1,118 @@
+﻿.ui-dialog { position: absolute; /*padding: .2em; width: 300px; overflow: hidden;*/ font-size:12px; 
+/*border: 1px solid #999999;*/
+background-color: white;
+/*z-index: 9999999;*/
+/*display: none;
+top: 50px;
+left: 250px;
+position: absolute;
+font-size: 13px;*/
+box-shadow: 0px 5px 15px #000;
+font-family: Verdana,Arial,sans-serif; /*font-size: 1em;*/
+}
+.ui-dialog .ui-dialog-titlebar  
+{
+    /*padding: .4em 1em;*/ position: relative; 
+    /*font-size:14px; font-weight:bold; 
+    background: -moz-linear-gradient(top, #77C1FF 0%, #00A2FF 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#77C1FF), color-stop(100%,#00A2FF));
+	background: -webkit-linear-gradient(top, #77C1FF 0%,#00A2FF 100%);
+	background: -o-linear-gradient(top, #77C1FF 0%,#00A2FF 100%);
+	background: -ms-linear-gradient(top, #77C1FF 0%,#00A2FF 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#77C1FF', endColorstr='#00A2FF',GradientType=0 );
+	background: linear-gradient(top, #77C1FF 0%,#00A2FF 100%);*/
+	background-position:-1px -1px;
+	background-repeat:repeat-x;
+    }
+.ui-dialog .ui-dialog-title { /*float: left; margin: .1em 16px .1em 0; color:#ffffff*/ } 
+
+.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0;height: 18px;  color:#ffffff;    margin-top: -21px;
+  margin-right: 28px;}
+
+.ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; color:#ffffff}
+.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
+.ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; }
+.ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
+
+
+/* Overlays */
+.dialogoverlay { position: absolute; top: 0; left: 0; width: 100%; height: auto; background: transparent;
+opacity: .70; }
+
+.dialogheader {
+    font-size: 15px;
+color: #3d6aa6;
+font-weight: bold;
+text-align: center;
+padding: 10px;
+text-shadow: #fff 1px 1px 1px;
+background-color: #e5e5e5;
+border-bottom: 1px solid #ccc;
+}
+.ui-dialog-icon { width: 16px; height: 16px; background-image: url(../images/controls.png);text-indent: -99999px; }
+.ui-icon-closethick {
+    width: 37px;
+    height: 19px;
+    text-indent: -99999px;
+    background-position: -31px -130px;
+}
+
+.ui-icon-closethick:hover { 
+    width: 37px;
+    height: 19px;
+    text-indent: -99999px;
+    background-position: -31px -111px;
+}
+
+
+
+
+.dialogbuttonset {
+  width: 100%;
+text-align: right;
+position: absolute;
+bottom: 0;
+right: 0;
+
+}
+
+.DialogDiv {
+    display:none;padding: 5px 10px;
+    padding-bottom: 36px;display: table-cell;
+}
+.DialogBreak {
+ 
+    padding-bottom: 5px;
+}
+div.DialogDiv table:nth-child(1) {  margin: 10px; /*display: table-cell;*/vertical-align: middle;}
+.DeleteDialogMsg {
+    padding-left:15px;
+    padding-right:15px;
+    min-width:315px;
+}
+
+/*For the UI Dialog scroll bar*/
+/*START*/
+.ui-dialog-content::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 11px;
+  height: 11px;
+}
+
+.ui-dialog-content::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+/*END*/
+
+.ui-dialog-buttonset {
+     float:right;
+}
+
+.ui-dialog-buttonpane {
+      border-top: 1px solid #aaaaaa;
+}
+
+    
+ 

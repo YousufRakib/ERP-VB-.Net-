@@ -1,0 +1,796 @@
+﻿
+
+.icons {
+    background: url('images/icons.png') no-repeat top left;
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+    .icons.addnew {
+        background-position: 0 0;
+        margin-top: -1px;
+    }
+
+    .icons.addnew_Old {
+        background-position: -26px 0;
+    }
+
+    .icons.address {
+        background-position: -52px 0;
+        width: 20px;
+    }
+
+    .icons.add-to-list {
+        background-position: -82px 0;
+    }
+
+    .icons.airoplane {
+        background-position: -108px 0;
+    }
+
+    .icons.ajax_loader_blue_512 {
+        background-position: -134px 0;
+        width: 50px;
+        height: 50px;
+    }
+
+    .icons.ajax-loader {
+        background-position: -194px 0;
+        height: 11px;
+    }
+
+    .icons.asset {
+        background-position: -220px 0;
+    }
+
+    .icons.bars {
+        background-position: -246px 0;
+    }
+
+    .icons.checkmark2 {
+        background-position: -272px 0;
+        width: 20px;
+        height: 20px;
+    }
+
+    .icons.check-off {
+        background-position: -302px 0;
+        width: 22px;
+    }
+
+    .icons.check-on {
+        background-position: -334px 0;
+        width: 22px;
+    }
+
+    .icons.circle-down {
+        background-position: -366px 0;
+    }
+
+    .icons.circle-up {
+        background-position: -392px 0;
+    }
+
+    .icons.cl1img {
+        background-position: -418px 0;
+        width: 12px;
+        height: 19px;
+    }
+
+    .icons.clhover {
+        background-position: -440px 0;
+        width: 12px;
+        height: 15px;
+    }
+
+    .icons.close {
+        background-position: -462px 0;
+        width: 12px;
+        height: 19px;
+    }
+
+    .icons.closehover {
+        background-position: -484px 0;
+        width: 12px;
+        height: 15px;
+    }
+
+    .icons.Communication {
+        background-position: -506px 0;
+        width: 30px;
+        height: 30px;
+    }
+
+    .icons.Contacts {
+        background-position: -546px 0;
+        width: 30px;
+        height: 30px;
+    }
+
+    .icons.country {
+        background-position: -586px 0;
+    }
+
+    .icons.credit {
+        background-position: -612px 0;
+    }
+
+    .icons.cross2 {
+        background-position: -638px 0;
+        width: 20px;
+        height: 20px;
+    }
+
+    .icons.delete {
+        background-position: -668px 0;
+        margin-left: 6px;
+    }
+
+    .icons.edit {
+        background-position: -694px 0;
+        margin-left: 6px;
+    }
+
+    .icons.EmptyFilter {
+        background-position: -720px 0;
+    }
+
+    .icons.Farmer {
+        background-position: -746px 0;
+    }
+
+    .icons.female {
+        background-position: -772px 0;
+        width: 35px;
+        height: 35px;
+    }
+
+    .icons.filter {
+        background-position: -817px 0;
+        width: 12px;
+        height: 12px;
+    }
+
+    .icons.flight {
+        background-position: -839px 0;
+    }
+
+    .icons.GGLogoH {
+        background-position: -865px 0;
+        width: 242px;
+        height: 45px;
+    }
+
+    .icons.graph {
+        background-position: -1117px 0;
+    }
+
+    .icons.home3 {
+        background-position: -1143px 0;
+    }
+
+    .icons.LogoFemale {
+        background-position: -1169px 0;
+        width: 128px;
+        height: 128px;
+    }
+
+    .icons.LogoMale {
+        background-position: -1307px 0;
+        width: 128px;
+        height: 128px;
+    }
+
+    .icons.logout {
+        background-position: -1445px 0;
+        width: 61px;
+        height: 55px;
+    }
+
+    .icons.male {
+        background-position: -1516px 0;
+        width: 35px;
+        height: 35px;
+    }
+
+    .icons.master {
+        background-position: -1561px 0;
+    }
+
+    .icons.menu {
+        background-position: -1587px 0;
+    }
+
+    .icons.no_logo {
+        background-position: -1613px 0;
+        width: 100px;
+        height: 100px;
+    }
+
+    .icons.ok-16 {
+        background-position: -1723px 0;
+    }
+
+    .icons.Otherfields {
+        background-position: -1749px 0;
+        width: 30px;
+        height: 30px;
+    }
+
+    .icons.plus {
+        background-position: -1789px 0;
+    }
+
+    .icons.POList {
+        background-position: -1815px 0;
+    }
+
+    .icons.receiving {
+        background-position: -1841px 0;
+    }
+
+    .icons.Relationship {
+        background-position: -1867px 0;
+        width: 30px;
+        height: 30px;
+    }
+
+    .icons.remove {
+        background-position: -1907px 0;
+    }
+
+    .icons.reports {
+        background-position: -1933px 0;
+    }
+
+    .icons.save-icon {
+        background-position: -1959px 0;
+    }
+
+    .icons.shipping {
+        background-position: -1985px 0;
+    }
+
+    .icons.tax {
+        background-position: -2011px 0;
+    }
+
+    .icons.transaction {
+        background-position: -2037px 0;
+    }
+
+    .icons.truck {
+        background-position: -2063px 0;
+    }
+
+/*Iconstyles start*/
+/*-----------------------------------------------------------------------------*/
+
+.iconemail {
+    cursor: pointer;
+    padding: 0px 33px;
+    background: url(../images/email.png) no-repeat 6px 10px;
+    background-size: 16px 16px;
+}
+
+.iconedit {
+    cursor: pointer;
+    padding: 0px 33px;
+    background: url(../images/edit.jpg) no-repeat 6px 10px;
+    background-size: 16px 16px;
+}
+
+.icondelete {
+    cursor: pointer;
+    padding: 0px 33px;
+    background: url(../images/goal.png) no-repeat 6px 10px;
+    background-size: 16px 16px;
+}
+
+.iconfilter {
+    cursor: pointer;
+    padding: 0px 33px;
+    background: url(../images/EmptyFilter.png) no-repeat 6px 10px;
+    background-size: 16px 16px;
+}
+
+.iconservice {
+    cursor: pointer;
+    padding: 0px 33px;
+    background: url(../images/pending.png) no-repeat 6px 10px;
+    background-size: 16px 16px;
+}
+
+.iconexit {
+    cursor: pointer;
+    padding: 0px 33px;
+    background: url(../images/exit.png) no-repeat 6px 10px;
+    background-size: 18px 17px;
+}
+
+.iconupload {
+    cursor: pointer;
+    padding: 0px 29px;
+    background: url(../images/upload.png) no-repeat 6px 10px;
+    background-size: 16px 16px;
+}
+
+.icondownload {
+    cursor: pointer;
+    padding: 0px 29px;
+    background: url(../images/download.gif) no-repeat 6px 10px;
+    background-size: 16px 16px;
+}
+
+.iconpending {
+    cursor: pointer;
+    padding: 0px 29px;
+    background: url(../images/pending.png) no-repeat 6px 10px;
+    background-size: 16px 16px;
+}
+
+.iconclipboard {
+    cursor: pointer;
+    padding: 0px 29px;
+    background: url(../images/Clipboard.png) no-repeat 6px 10px;
+    background-size: 16px 16px;
+}
+
+.iconchecksmall {
+    cursor: pointer;
+    padding: 0px 29px;
+    background: url(../images/Check_small.png) no-repeat 6px 10px;
+    background-size: 16px 16px;
+}
+/*-----------------------------------------------------------------------------*/
+/*Iconstyles end*/
+
+
+/*Font icons*/
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?9323350');
+  src: url('../font/fontello.eot?9323350#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?9323350') format('woff'),
+       url('../font/fontello.ttf?9323350') format('truetype'),
+       url('../font/fontello.svg?9323350#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?9323350#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-print:before { content: '\e800'; } /* '' */
+.icon-print-1:before { content: '\e801'; } /* '' */
+.icon-cancel2:before { content: '\e802'; } /* '' */
+.icon-check:before { content: '\e803'; } /* '' */
+.icon-ok1:before { content: '\e804'; } /* '' */
+.icon-cancel-1:before { content: '\e805'; } /* '' */
+.icon-save:before { content: '\e806'; } /* '' */
+.icon-cancel:before { content: '\e807'; } /* '' */
+.icon-cancel-3:before { content: '\e808'; } /* '' */
+.icon-ok-2:before { content: '\e809'; } /* '' */
+.icon-ok-3:before { content: '\e80a'; } /* '' */
+.icon-cancel-4:before { content: '\e80b'; } /* '' */
+.icon-ok-4:before { content: '\e80c'; } /* '' */
+.icon-cancel-5:before { content: '\e80d'; } /* '' */
+.icon-ok-5:before { content: '\e80e'; } /* '' */
+.icon-cancel-6:before { content: '\e80f'; } /* '' */
+.icon-ok-6:before { content: '\e810'; } /* '' */
+.icon-cancel-7:before { content: '\e811'; } /* '' */
+.icon-trash:before { content: '\e812'; } /* '' */
+.icon-pencil:before { content: '\e813'; } /* '' */
+.icon-pencil-neg:before { content: '\e814'; } /* '' */
+.icon-trash-1:before { content: '\e815'; } /* '' */
+.icon-trash-empty:before { content: '\e816'; } /* '' */
+.icon-pencil-1:before { content: '\e817'; } /* '' */
+.icon-trash-empty-1:before { content: '\e818'; } /* '' */
+.icon-pencil-2:before { content: '\e819'; } /* '' */
+.icon-pencil-3:before { content: '\e81a'; } /* '' */
+.icon-trash-2:before { content: '\e81b'; } /* '' */
+.icon-pencil-4:before { content: '\e81c'; } /* '' */
+.icon-trash-3:before { content: '\e81d'; } /* '' */
+.icon-plus:before { content: '\e81e'; } /* '' */
+.icon-email1:before { content: '\e81f'; } /* '' */
+.icon-email2:before { content: '\e820'; } /* '' */
+.icon-email:before { content: '\e821'; } /* '' */
+.icon-contacts:before { content: '\e822'; } /* '' */
+.icon-picture:before { content: '\e823'; } /* '' */
+.icon-picture-1:before { content: '\e824'; } /* '' */
+.icon-picture-2:before { content: '\e825'; } /* '' */
+.icon-picture-3:before { content: '\e826'; } /* '' */
+.icon-camera-1:before { content: '\e827'; } /* '' */
+.icon-camera:before { content: '\e828'; } /* '' */
+.icon-home:before { content: '\e829'; } /* '' */
+.icon-exchange:before { content: '\e82a'; } /* '' */
+.icon-chart-bar:before { content: '\e82b'; } /* '' */
+.icon-plane:before { content: '\e82c'; } /* '' */
+.icon-menu-1:before { content: '\e82d'; } /* '' */
+.icon-flight:before { content: '\e82e'; } /* '' */
+.icon-globe:before { content: '\e82f'; } /* '' */
+.icon-globe-alt:before { content: '\e830'; } /* '' */
+.icon-blind:before { content: '\e831'; } /* '' */
+.icon-download:before { content: '\e832'; } /* '' */
+.icon-download-1:before { content: '\e833'; } /* '' */
+.icon-truck:before { content: '\e834'; } /* '' */
+.icon-truck-1:before { content: '\e835'; } /* '' */
+.icon-home-1:before { content: '\e836'; } /* '' */
+.icon-credit-card:before { content: '\e837'; } /* '' */
+.icon-credit-card-1:before { content: '\e838'; } /* '' */
+.icon-download-2:before { content: '\e839'; } /* '' */
+.icon-users:before { content: '\e83a'; } /* '' */
+.icon-flight-1:before { content: '\e83b'; } /* '' */
+.icon-graph:before { content: '\e83c'; } /* '' */
+.icon-bin:before { content: '\e83d'; } /* '' */
+.icon-chart-line:before { content: '\e83e'; } /* '' */
+.icon-credit-card-2:before { content: '\e83f'; } /* '' */
+.icon-bars:before { content: '\e840'; } /* '' */
+.icon-aircraft-take-off:before { content: '\e841'; } /* '' */
+.icon-aircraft:before { content: '\e842'; } /* '' */
+.icon-address-book:before { content: '\e843'; } /* '' */
+.icon-stats-bars:before { content: '\e844'; } /* '' */
+.icon-stack:before { content: '\e845'; } /* '' */
+.icon-phone-1:before { content: '\e846'; } /* '' */
+.icon-printer:before { content: '\e847'; } /* '' */
+.icon-pencil-5:before { content: '\e848'; } /* '' */
+.icon-menu:before { content: '\e849'; } /* '' */
+.icon-image:before { content: '\e84a'; } /* '' */
+.icon-home3:before { content: '\e84b'; } /* '' */
+.icon-file-text:before { content: '\e84c'; } /* '' */
+.icon-earth:before { content: '\e84d'; } /* '' */
+.icon-layers:before { content: '\e84e'; } /* '' */
+.icon-master:before { content: '\e84f'; } /* '' */
+.icon-download2:before { content: '\e850'; } /* '' */
+.icon-left-open:before { content: '\e851'; } /* '' */
+.icon-right-open:before { content: '\e852'; } /* '' */
+
+
+
+/*=====================================*/
+/*--for edit and delete icon color change--*/
+/*=====================================*/
+.icon-pencil-3:hover::before {
+    color: green;
+    cursor: pointer;
+}
+
+.icon-trash:hover::before {
+    color: red;
+    cursor: pointer;
+}
+
+/*=====================================*/
+/*--for cancel button (dialog) color change--*/
+/*=====================================*/
+.icon-cancel {
+    /*background: -webkit-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -moz-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -ms-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -o-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);*/
+
+}
+
+
+    .icon-cancel:hover {
+        /*background-color: #eee;*/
+        /*background: -webkit-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: -moz-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: -ms-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: -o-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);*/
+        background: -webkit-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -moz-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -ms-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -o-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+        font-weight: bold;
+        
+         box-shadow: 3px 3px 6px black;
+       /*color: red;
+              background-color: #6DABFF;
+              color:white;*/
+    }
+
+        .icon-cancel:hover::before {
+            /*color: red;
+            color: white;*/
+
+        }
+
+        
+    .icon-cancel:focus {
+        /*background-color: #eee;*/
+       
+        font-weight: bold;
+       /*color: red;*/
+        
+      
+         /*background-color: #6DABFF;
+              color:white;*/
+              background: -webkit-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -moz-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -ms-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -o-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+        font-weight: bold;
+        
+         box-shadow: 3px 3px 6px black;
+    }
+
+        .icon-cancel:hover:focus {
+            /*color: red;
+            color:white;*/
+        }
+
+   
+
+/*=====================================*/
+/*--for save button (dialog) color change--*/
+/*=====================================*/
+.icon-save:hover::before {
+   
+}
+
+.icon-save {
+    /*background: -webkit-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -moz-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -ms-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -o-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: linear-gradient(top, #77C1FF 1%,#4679BD 100%);*/
+   
+}
+
+    .icon-save:hover {
+        background: -webkit-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -moz-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -ms-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -o-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+       
+        /*color: green;
+        font-weight: bold;
+        box-shadow: 3px 3px 6px black;
+        background-color:#6DABFF;
+        color:white;*/
+          box-shadow: 3px 3px 6px black;
+    }
+
+    .icon-save:focus::before {
+    /*color: green;
+    color:white;*/
+}
+
+
+    .icon-save:focus {
+           /*background-color: #eee;*/
+        /*background: -webkit-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -moz-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -ms-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -o-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background-color: #6DABFF;*/
+        /*color: green;
+        font-weight: bold;
+        box-shadow: 3px 3px 6px black;
+         background-color:#6DABFF;
+        color:white;*/
+
+         background: -webkit-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -moz-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -ms-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -o-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+        font-weight: bold;
+        
+         box-shadow: 3px 3px 6px black;
+
+    }
+
+
+    /*=====================================*/
+/*--for email button (dialog) color change--*/
+/*=====================================*/
+.icon-email:hover::before {
+    color: white;
+}
+
+.icon-email {
+    background: -webkit-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -moz-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -ms-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -o-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+}
+
+    .icon-email:hover {
+        background-color: #eee;
+        background: -webkit-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -moz-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -ms-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -o-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background-color: #6DABFF;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .icon-email:focus {
+        outline: 0;
+    }
+
+
+/*-----------------*/
+
+/*=====================================*/
+/*--for Next button (GNG) color change--*/
+/*=====================================*/
+
+.icon-left-open:hover::before {
+    color: white;
+}
+
+.icon-left-open {
+    background: -webkit-linear-gradient(top, #F5F5F5 1%, #A5A5A5 100%);
+    background: -moz-linear-gradient(top, #F5F5F5 1%,#A5A5A5 100%);
+    background: -ms-linear-gradient(top, #F5F5F5 1%,#A5A5A5 100%);
+    background: -o-linear-gradient(top, #F5F5F5 1%,#A5A5A5 100%);
+    background: linear-gradient(top, #F5F5F5 1%,#A5A5A5 100%);
+}
+
+    .icon-left-open:hover {
+        background-color: #eee;
+        background: -webkit-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: -moz-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: -ms-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: -o-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background-color: #6DABFF;
+        color: #333;
+    }
+
+    .icon-left-open:focus {
+        outline: 0;
+    }
+
+/*=====================================*/
+/*--for Previous button (GNG) color change--*/
+/*=====================================*/
+
+
+.icon-right-open:hover::before {
+    color: white;
+}
+
+.icon-right-open {
+    background: -webkit-linear-gradient(top, #F5F5F5 1%,#A5A5A5 100%);
+    background: -moz-linear-gradient(top, #F5F5F5 1%,#A5A5A5 100%);
+    background: -ms-linear-gradient(top, #F5F5F5 1%,#A5A5A5 100%);
+    background: -o-linear-gradient(top, #F5F5F5 1%,#A5A5A5 100%);
+    background: linear-gradient(top, #F5F5F5 1%,#A5A5A5 100%);
+}
+
+    .icon-right-open:hover {
+        background-color: #eee;
+        background: -webkit-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: -moz-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: -ms-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: -o-linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background: linear-gradient(top, #8C8B8B 1%, #E8E8E8 100%);
+        background-color: #6DABFF;
+        color: #333;
+    }
+
+    .icon-right-open:focus {
+        outline: 0;
+    }
+
+
+/*==================================================*/
+/*--for Print button (Dialog-Blooms) color change--*/
+/*==================================================*/
+
+.icon-print-1:hover::before {
+    color: white;
+}
+
+.icon-print-1 {
+    background: -webkit-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -moz-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -ms-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -o-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+}
+
+    .icon-print-1:hover {
+        background-color: #eee;
+        background: -webkit-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -moz-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -ms-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -o-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background-color: #6DABFF;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .icon-print-1:focus {
+        outline: 0;
+    }
+
+/*==================================================*/
+/*--for Download button (Dialog-Blooms) color change--*/
+/*==================================================*/
+
+
+.icon-download:hover::before {
+    color: white;
+}
+
+.icon-download {
+    background: -webkit-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -moz-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -ms-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: -o-linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+    background: linear-gradient(top, #77C1FF 1%,#4679BD 100%);
+}
+
+    .icon-download:hover {
+        background-color: #eee;
+        background: -webkit-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -moz-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -ms-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: -o-linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background: linear-gradient(top, #457BC4 1%, #9DCDF5 100%);
+        background-color: #6DABFF;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .icon-download:focus {
+        outline: 0;
+    }

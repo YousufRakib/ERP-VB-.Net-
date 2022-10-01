@@ -1,0 +1,292 @@
+﻿<%@ Master Language="VB" CodeFile="Dashboard.master.vb" Inherits="Dashboard" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link rel="shortcut icon" href="images/dflower2.ico" type="image/x-icon" style="padding-top: 8px;" />
+    <link rel="icon" href="images/dflower2.ico" type="image/x-icon" />
+    <meta http-equiv="Page-Enter" content="blendTrans(Duration=0.2)" />
+    <meta http-equiv="Page-Exit" content="blendTrans(Duration=0.2)" />
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="Content-Language" content="en_US" />
+
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery-ui-1.11.4.js"></script>
+    <script type="text/javascript">
+        var J1_8 = $.noConflict(true);
+    </script>
+
+    <link rel="stylesheet" href="css/Selectize/normalize.css" />
+    <script type="text/javascript" src="js/Selectize/jquery.js"></script>
+    <script type="text/javascript" src="js/Selectize/selectize.js"></script>
+    <script type="text/javascript" src="js/Selectize/index.js"></script>
+    <script type="text/javascript">
+        var J1_10 = $.noConflict(true);
+    </script>
+
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flexigrid.js"></script>
+    <script type="text/javascript" src="js/jquery.ibutton.js"></script>
+    <script type="text/javascript" src="js/jquery-mask.js"></script>
+    <script type="text/javascript" src="js/messagebox.min.js"></script>
+    <script type="text/javascript" src="js/jDate.js"></script>
+
+
+    <link rel="stylesheet" href="css/jquery.ibutton1.css" type="text/css" />
+    <link rel="stylesheet" href="css/flexigrid.css" type="text/css" />
+    <link rel="stylesheet" href="css/StyleSheet.css" type="text/css" />
+    <link rel="stylesheet" href="css/animated-menu.css" />
+    <link rel="stylesheet" href="css/dialog.css" />
+    <link rel="stylesheet" href="css/ui-autocomplete.css" />
+    <link rel="stylesheet" href="css/Datepicker.css" />
+    <link rel="stylesheet" href="css/icon.css" />
+    <%--<link rel="stylesheet" href="css/tooltips.css" />--%>
+    <link rel="stylesheet" href="css/dialogbuttonstyle.css" />
+    <link rel="stylesheet" href="css/messagebox.css" />
+    <link type="text/css" href="css/Head1.css" rel="stylesheet" />
+
+    <link href="css/jquery.fileuploader-theme-dragdrop.css" rel="stylesheet" />
+    <link href="css/jquery.fileuploader.css" rel="stylesheet" />
+    <script src="js/custom.js" type="text/javascript"></script>
+    <script src="js/jquery.fileDownload.js" type="text/javascript"></script>
+    <script src="js/jquery.fileuploader.js" type="text/javascript"></script>
+
+
+
+    <script type="text/javascript">
+
+        $.ajaxSetup({
+            // the converter option is a list of dataType-to-dataType conversion functions 
+            // example: converters['text json'] is a function that accepts text and returns an object
+            // note: to redefine any single converter, you must redefine all of them
+            converters: {
+                "text json": function (text) {
+                    if (!text)
+                        return text;
+                    // NOTE: this converter must return a parsed version of the json  
+                    var result = jQuery.parseJSON(text);
+                    if (result.d && result.d["Result"]) {
+                        output = {};
+                        output.d = result.d["Result"];
+                        return output;
+                    }
+                    return result;
+                }
+                //, "text html": true,
+                //"* text": window.String,
+                //"text xml": jQuery.parseXML
+            }
+        });
+
+        function KometVisibility() {
+            var IsKometSales = '<%=ConfigurationManager.AppSettings("IsKometSales").ToString() %>'
+            if (IsKometSales.toUpperCase() != 'YES') {
+                $('#Dboard_MenuInventorytoKomet').hide();
+            }
+            else {
+                $('#Dboard_MenuInventorytoKomet').show();
+            }
+        }
+
+        $(document).ready(function () {
+            KometVisibility();
+            var today = new Date();
+            var year = today.getFullYear();
+            $("#spnCopyrgt").html("Copyright © " + year + "&nbsp;");
+
+            if ($("#ctl00_divIsAdmin").html() == "True") {
+                $("#Dboard_MenuUserProfile").show();
+            }
+            else {
+                $.ajax({
+                    type: "POST",
+                    url: 'BloomService.asmx/GetUserPageList',
+                    data: '{"UserID":"' + $("#ctl00_divUserID").html() + '"}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (output) {
+
+                        var user = output.d;
+                        var wpdata = user.WebPermissions
+                        var redirectpage;
+                        if (wpdata != null) {
+                            $("#cssmenu ul").html("");
+                            for (var i in wpdata) {
+                                var wpdetails = wpdata[i];
+                                $('#cssmenu ul').append("<li id='UDboard_menu" + wpdetails.Page + "'><a href='Default.aspx?Page=" + wpdetails.Page + "'><span>" + wpdetails.Name.replace(" ?", "") + "</span></a></li>");
+                                //if (wpdetails.Landing != "") {
+                                //    redirectpage = wpdetails.Landing;
+                                //    //window.location.href = "DefaultUser.aspx?Page=" + redirectpage;
+                                //}
+                            }
+                            $('#cssmenu ul').append(" <li id='Dboard_MenuUserProfile' style='display:none;'><a href='DefaultUser.aspx?Page='" + redirectpage + "'><span>User Profile</span></a></li>");
+                            $('#cssmenu ul').append("<li class='last'><a href='login.aspx'><span>logout</span></a></li>");
+                        }
+                        var page = getParameterByName("Page");
+                        if (page != "") {
+                            $("#cssmenu ul li").removeClass('active');
+                            $("#UDboard_menu" + page).addClass('active');
+                        }
+                        if ($("#ctl00_divIsAdmin").html() == "True")
+                            $("#Dboard_MenuUserProfile").show();
+                    }
+                });
+            }
+
+
+
+            document.title = '<%=ConfigurationManager.AppSettings("CompanyName")%>';
+             $("#imgHeaderLogo").attr("src", "images/" + ('<%=ConfigurationManager.AppSettings("CompanyName")%>').toString().replaceAll(' ', '') + "headerlogo.PNG");
+             var height = $(window).height();
+             $("#leftpanel").css('height', height - 120);
+             J1_8($(document)).tooltip();
+
+             $("#lnkcopyright").attr("href", "http://www.dflower.com");
+             $("#lnkcopyright").html("dFlower");
+         });
+
+         $("#Dboard_MenuUserProfile").die("click").live("click", function () {
+             $.ajax({
+                 type: "POST",
+                 url: 'BloomService.asmx/GetUserPageList',
+                 data: '{"UserID":"' + $("#ctl00_divUserID").html() + '"}',
+                 contentType: "application/json; charset=utf-8",
+                 dataType: "json",
+                 success: function (output) {
+
+                     var user = output.d;
+                     var wpdata = user.WebPermissions
+                     if (wpdata != null) {
+                         //$("#cssmenu ul").html("");
+                         for (var i in wpdata) {
+                             var wpdetails = wpdata[i];
+                             if (wpdetails.Landing != "") {
+
+                                 var redirectpage = wpdetails.Landing;
+                                 window.location.href = "DefaultUser.aspx?Page=" + redirectpage;
+                             }
+                         }
+                     }
+                 }
+             });
+         });
+    </script>
+
+</head>
+<body>
+    <%--<div id="imgAdminLoader" style="display: none;">
+        <img alt="Loding..." src="images/ajax_loader_blue_512.gif" class="imgloader" />
+    </div>--%>
+    <form id="form1" runat="server" style="overflow: hidden;">
+
+        <div class="header">
+
+            <div style="float: left; margin-right: 5px;">
+                <a href="#">
+                    <img id="imgHeaderLogo" src="images/transparent.PNG" alt="User" style="margin-left: 5px" height="50" /></a>
+            </div>
+
+            <div style="float: right; margin-right: 5px">
+                <img alt="Loding..." id="imgAdminLoader" style="height: 45px; width: 45px; position: fixed; right: 65px; display: none" src="images/ajax_loader_blue_512.gif" />
+
+                <a style="display: none; position: absolute; right: 50px; top: 13px; font-size: 17px; font-weight: bold;" id="DivExecutionResult"></a>
+                <nav>
+                       <ul style="padding: 8px; position:absolute;">
+                            <li style="width:50px;height:49px"><a href="#"><img src="images/DFLOWER.ico" title="For support contact: jose@dflower.com"  alt="User" width="35px" /></a>
+                            </li>
+                        </ul>
+                    </nav>
+            </div>
+        </div>
+
+        <div id='cssmenu'>
+            <ul>
+                <li id="Dboard_MenuUsers"><a href="Default.aspx?Page=Users"><span>Users</span></a></li>
+                <li id="Dboard_MenuAdminSettings"><a href='Default.aspx?Page=AdminSettings'><span>Admin</span></a></li>
+                <li id="Dboard_MenuEmail"><a href='Default.aspx?Page=Email'><span>Email</span></a></li>
+                <li id="Dboard_MenuLogs"><a href='Default.aspx?Page=Logs'><span>Logs</span></a></li>
+                <li id="Dboard_MenuFlowers"><a href='Default.aspx?Page=Flowers'><span>Flowers</span></a></li>
+                <li id="Dboard_MenuFarms"><a href='Default.aspx?Page=Farms'><span>Farms</span></a></li>
+                <li id="Dboard_MenuColorCode"><a href='Default.aspx?Page=ColorCode'><span>ColorCode</span></a></li>
+                <li id="Dboard_MenuWarehouse"><a href='Default.aspx?Page=Warehouse'><span>Warehouse</span></a></li>
+                <li id="Dboard_MenuARXML"><a href='Default.aspx?Page=ARXML'><span>ARXML</span></a></li>
+                <li id="Dboard_MenuCarrier"><a href='Default.aspx?Page=Carrier'><span>Carrier</span></a></li>
+                <li id="Dboard_MenuInventorytoKomet"><a href='Default.aspx?Page=InventorytoKomet'><span>InventorytoKomet</span></a></li>
+                <li id="Dboard_MenuUserProfile" style="display: none;"><a href='#'><span>User Profile</span></a></li>
+                <li class='last'><a href='Login.aspx'><span>Logout</span></a></li>
+            </ul>
+            <div style="float: right; height: 38px; cursor: pointer" class="loginuserdetails">
+                <div id="divLoginUserName" class="LoginUserName" runat="server"></div>
+                <div id="divLoginUserEmail" class="LoginEmail" runat="server"></div>
+            </div>
+            <%--<div id="divUsers" runat="server" style="display: none"></div>
+            <div id="divAdmin" runat="server" style="display: none"></div>
+            <div id="divEmail" runat="server" style="display: none"></div>--%>
+            <div id="divUserID" runat="server" style="display: none"></div>
+            <div id="divUserRP" runat="server" style="display: none"></div>
+            <div id="divIsAdmin" runat="server" style="display: none"></div>
+        </div>
+
+        <div class="MainContentWrapper" align="center">
+            <div id="container" class="MainContent" align="left">
+
+                <div id="leftpanel" class="LeftPanel">
+                    <asp:ContentPlaceHolder ID="detail" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="pageFooter center fontSmall fontBold" style="font-weight: bold; font-size: 10px; text-align: center; height: 15px; width: 100%; color: #999999; bottom: 10px;">
+                    <p><span id="spnCopyrgt">Copyright © 2015</span> <a target="_blank" id="lnkcopyright" href="#"></a> All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+        <%-- VEN::12-Nov-2015::For update password --%>
+        <div id="divChangePasswordDialog" style="display: none">
+            <table style="width: 100%">
+                <tr>
+                    <td colspan="2">
+                        <div class="Warning" align="center">
+                            OOPS! Unable to process your request. Please contact admin!
+                        </div>
+                        <div class="YellowWarning" align="center">
+                            All fields are required fields, Please try again.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Username :
+                    </td>
+                    <td>
+                        <input type="text" id="txtloginusername" disabled="disabled" style="width: 250px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email :
+                    </td>
+                    <td>
+                        <input type="text" id="txtloginemail" disabled="disabled" style="width: 250px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password :
+                    </td>
+                    <td>
+                        <input type="password" id="txtloginpassword" style="width: 250px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Confirm Password :
+                    </td>
+                    <td>
+                        <input type="password" id="txtloginconfirmpass" style="width: 250px" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <%--<div align='center' style='font-size:11px; color:#999999;'>&copy 2014-15 - GT Brokers Corp. USA, All rights reserved.</div>--%>
+    </form>
+
+</body>
+</html>

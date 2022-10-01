@@ -1,0 +1,185 @@
+﻿html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #d9dee2;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#ebeef2),to(#d9dee2));
+    background-image: -webkit-linear-gradient(top,#ebeef2,#d9dee2);
+    background-image: -moz-linear-gradient(top,#ebeef2,#d9dee2);
+    background-image: -ms-linear-gradient(top,#ebeef2,#d9dee2);
+    background-image: -o-linear-gradient(top,#ebeef2,#d9dee2);
+    background-image: linear-gradient(top,#ebeef2,#d9dee2);
+}
+
+#loginLogo {
+    max-height: 200px;
+    max-width: 350px;
+}
+
+#login #logoDiv {
+    margin: 0px 0px 30px 0px;
+    text-align: center;
+}
+
+.loginWithLogo {
+    top: 43%;
+}
+
+.loginWithoutLogo {
+    top: 50%;
+}
+
+#loginTitle {
+    font-size: 20px;
+}
+/*#login{
+     background-color:#fff;
+     height:auto;
+     min-height:240px;
+     width:340px;
+     margin:-150px 0 0 -200px;
+     padding:30px;
+     position:absolute;
+     left:50%;
+     z-index:0;
+     -moz-border-radius:3px;
+     -webkit-border-radius:3px;
+     border-radius:3px;
+     -webkit-box-shadow:0 0 2px rgba(0,0,0,0.2),0 1px 1px rgba(0,0,0,.2),0 3px 0 #fff,0 4px 0 rgba(0,0,0,.2),0 6px 0 #fff,0 7px 0 rgba(0,0,0,.2);
+     -moz-box-shadow:0 0 2px rgba(0,0,0,0.2),1px 1px 0 rgba(0,0,0,.1),3px 3px 0 rgba(255,255,255,1),4px 4px 0 rgba(0,0,0,.1),6px 6px 0 rgba(255,255,255,1),7px 7px 0 rgba(0,0,0,.1);
+     box-shadow:0 0 2px rgba(0,0,0,0.2),0 1px 1px rgba(0,0,0,.2),0 3px 0 #fff,0 4px 0 rgba(0,0,0,.2),0 6px 0 #fff,0 7px 0 rgba(0,0,0,.2);
+
+}*/
+
+#login {
+    height: auto;
+    min-height: 240px;
+    width: 340px;
+    margin: -150px 0 0 -200px;
+    padding: 30px;
+    position: absolute;
+    left: 50%;
+    z-index: 0;
+}
+
+
+    #login:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 5px;
+        bottom: 5px;
+        left: 5px;
+        right: 5px;
+        /*-moz-box-shadow:0 0 0 1px #fff;
+    -webkit-box-shadow:0 0 0 1px #fff;
+    box-shadow:0 0 0 1px #fff;*/
+    }
+
+#txtUsername {
+    background-position: 5px -2px!important;
+}
+
+#txtPassword {
+    background-position: 5px -52px!important;
+}
+/**/
+
+
+/*header {
+  position: fixed;
+  top: 0px;
+  background-color: rgb(0, 115, 234);
+  background-image: linear-gradient(rgb(0, 115, 234), rgb(204, 209, 213));
+  margin: 0px auto;
+  clear: both;
+  width: 100%;
+  min-height: 40px;
+  height: 40px;
+}*/
+
+h2 {
+    text-shadow: rgba(255, 255, 255, 0.701961) 0px 1px 0px, rgba(0, 0, 0, 0.498039) 0px 2px 0px;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(255, 0, 0);
+    margin: 0px 0px 30px;
+    letter-spacing: 4px;
+    font: normal 18px/1 Verdana, Helvetica;
+    position: relative;
+}
+
+    h2::after, h2::before {
+        background-color: rgb(255, 0, 0);
+        content: '';
+        height: 1px;
+        position: absolute;
+        top: 8px;
+        width: 120px;
+    }
+
+    h2::after {
+        background-image: -webkit-linear-gradient(left, rgb(119, 119, 119), rgb(255, 255, 255));
+        right: 0px;
+    }
+
+    h2::before {
+        background-image: -webkit-linear-gradient(right, rgb(119, 119, 119), rgb(255, 255, 255));
+        left: 0px;
+    }
+
+#inputs input {
+    background: url(../images/login-sprite.png) no-repeat rgb(241, 241, 241);
+    padding: 15px 3px 15px 30px;
+    margin: 2px -3px 10px;
+    width: 312px;
+    border: 1px solid rgb(204, 204, 204);
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-radius: 5px;
+    -webkit-box-shadow: rgb(204, 204, 204) 0px 1px 1px inset, rgb(255, 255, 255) 0px 1px 0px;
+    box-shadow: rgb(204, 204, 204) 0px 1px 1px inset, rgb(255, 255, 255) 0px 1px 0px;
+}
+
+#txtUsername {
+    background-position: 5px -2px;
+}
+
+
+
+#btnLogin {
+    background-color: rgb(255, 185, 75);
+    background-image: -webkit-linear-gradient(top, rgb(253, 219, 111), rgb(255, 185, 75));
+    border-radius: 3px;
+    text-shadow: rgba(255, 255, 255, 0.498039) 0px 1px 0px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 1px, rgba(255, 255, 255, 0.298039) 0px 1px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 1px, rgba(255, 255, 255, 0.298039) 0px 1px 0px inset;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(214, 158, 49) rgb(227, 160, 55) rgb(213, 152, 45);
+    float: left;
+    height: 35px;
+    padding: 0px;
+    width: 120px;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: rgb(143, 90, 10);
+    /*margin-left: 16px;*/
+}
+
+
+
+footer {
+    width: 100%;
+    text-align: center;
+    left: 0px;
+    bottom: 0px;
+    position: absolute;
+    height: 25px;
+    background-color: rgb(0, 115, 234);
+    background-image: linear-gradient(rgb(204, 209, 213), rgb(0, 115, 234));
+}

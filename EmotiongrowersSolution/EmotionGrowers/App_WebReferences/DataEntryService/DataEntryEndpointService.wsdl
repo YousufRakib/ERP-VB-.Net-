@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://endpoint.ws.dataentry.aelis4.armellini.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://www.armellini.com/a4/schemas" name="DataEntryEndpointService" targetNamespace="http://endpoint.ws.dataentry.aelis4.armellini.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.armellini.com/a4/schemas" location="http://aelis4-uat-api-1711636206.us-east-1.elb.amazonaws.com:9090/data-entry/ws/DataEntryService?wsdl=DataEntryPort.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="DataEntryEndpointServiceSoapBinding" type="ns1:DataEntryPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AelisShipperEDI">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="AelisShipperEDI">
+        <soap:header message="ns1:AelisShipperEDI" part="header" use="literal" />
+        <soap:body use="literal" parts="AelisShipperEDIRequest" />
+      </wsdl:input>
+      <wsdl:output name="AelisShipperEDIResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataEntryEndpointService">
+    <wsdl:port name="DataEntryEndpointPort" binding="tns:DataEntryEndpointServiceSoapBinding">
+      <soap:address location="http://aelis4-uat-api-1711636206.us-east-1.elb.amazonaws.com:9090/data-entry/ws/DataEntryService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
